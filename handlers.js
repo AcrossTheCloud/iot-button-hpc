@@ -13,7 +13,6 @@ module.exports.invoke = function(event, context, callback) {
     NotificationARNs: [
       process.env.NOTIFICATION_ARN
     ],
-    OnFailure: 'DELETE',
     Parameters: [
       {
         ParameterKey: 'AccessUsername',
@@ -26,8 +25,26 @@ module.exports.invoke = function(event, context, callback) {
         UsePreviousValue: false
       },
       {
-        ParameterKey: ''
-      }
+        ParameterKey: 'AccessNetwork',
+        ParameterValue: process.env.ACCESS_NETWORK,
+        UsePreviousValue: false
+      },
+      {
+        ParameterKey: 'FlightFeatures',
+        ParameterValue: 'configure-docker'
+        UsePreviousValue: false
+      },
+      {
+        ParameterKey: 'FileProfileBucket',
+        ParameterValue: '',
+        UsePreviousValue: false
+      },
+
+      {
+        ParameterKey: 'FlightProfiles',
+        ParameterValue: ''
+        UsePreviousValue: false
+      },
     ],
     RoleARN: 'arn:aws:iam::'+process.env.AWS_ACCOUNT_ID+':role/startHPC',
     Tags: [
