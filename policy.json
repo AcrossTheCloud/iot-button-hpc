@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sqs:*",
+                "sts:*",
+                "cloudformation:*",
+                "cloudwatch:*",
+                "iam:*",
+                "ec2:*",
+                "autoscaling:*",
+                "sns:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": "arn:aws:s3:::bucket_with_template_in/*"
+        }
+    ]
+}
