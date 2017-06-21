@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 
-exports.invoke = function(event, context, callback) {
+module.exports.invoke = function(event, context, callback) {
 
   const cloudformation = new AWS.CloudFormation();
 

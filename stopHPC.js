@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 
-exports.delete = function(event, context, callback) {
+module.exports.delete = function(event, context, callback) {
   const cloudformation = new AWS.CloudFormation();
   var params = {
     StackName: 'MY_HPC',
