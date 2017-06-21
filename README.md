@@ -1,5 +1,5 @@
 # iot-button-hpc
-HPC at the push of a button.
+HPC at the push of an IoT button.
 
 ## Requirements:
 1. Two [AWS IoT buttons](https://aws.amazon.com/iotbutton/).
