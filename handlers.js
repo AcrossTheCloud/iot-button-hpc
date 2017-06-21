@@ -10,9 +10,10 @@ module.exports.invoke = function(event, context, callback) {
       'CAPABILITY_IAM'
     ],
     DisableRollback: false,
+    /* optionally:
     NotificationARNs: [
       process.env.NOTIFICATION_ARN
-    ],
+    ], */
     Parameters: [
       {
         ParameterKey: 'AccessUsername',

@@ -12,12 +12,15 @@ HPC at the push of a button.
 
 ## Steps:
 1. Use the configuration wizard x2 at https://aws.amazon.com/iotbutton/getting-started/ to set up your buttons (if you haven't already).
-1. Create and subscribe to an SNS topic for notifications about the HPC cluster startup.
-2. Edit [policy.json](policy.json) and fill in the bucket in which you have the CLoudFormation template for Alces Flight Solo, and assign that policy to a role called *lambda-cloudformation* (or if different, modify [serverless.yml](serverless.yml)
-3. Copy [env.yml.sample](env.yml.sample) to env.yml and edit, specifying full s3 path to that template and the other required details as required.
-4. Run `serverless deploy` to deploy the lambda functions required
-5. Press your start button.
-6. Grab a coffee.
-7. Check outputs in the AWS CloudFormation console under the "MYHPC" stack (unless you changed the name in serverless.yml) to find the IP address, the key and username are as you specified in env.yml.
-8. Enjoy your [Alces Flight](http://alces-flight) High Performance Computing cluster.
-9. When done, press your stop button.
+2. Optionally create and subscribe to an SNS topic for notifications about the HPC cluster startup (and uncomment code in serverless.yml)
+3. Edit [policy.json](policy.json) and fill in the bucket in which you have the CLoudFormation template for Alces Flight Solo, and assign that policy to a role called *lambda-cloudformation* (or if different, modify [serverless.yml](serverless.yml)
+4. Copy [env.yml.sample](env.yml.sample) to env.yml and edit, specifying full s3 path to that template and the other required details as required.
+5. Run `serverless deploy` to deploy the lambda functions required
+6. Press your start button.
+7. Grab a coffee.
+8. Check outputs in the AWS CloudFormation console under the "MYHPC" stack (unless you changed the name in serverless.yml) to find the IP address, the key and username are as you specified in env.yml.
+9. Enjoy your [Alces Flight](http://alces-flight) High Performance Computing cluster.
+10. When done, press your stop button.
+
+## Video
+[![Video](https://img.youtube.com/vi/OhW8zVVyDiQ/0.jpg)](http://www.youtube.com/watch?v=OhW8zVVyDiQ "HPC at the push of an IoT button")
