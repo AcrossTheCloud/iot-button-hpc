@@ -5,7 +5,7 @@ module.exports.invoke = function(event, context, callback) {
   const cloudformation = new AWS.CloudFormation();
 
   var params = {
-    StackName: 'MY_HPC', /* required */
+    StackName: 'MYHPC', /* required */
     Capabilities: [
       'CAPABILITY_IAM'
     ],
@@ -37,7 +37,7 @@ module.exports.invoke = function(event, context, callback) {
       }
     ],
     TemplateURL: process.env.TEMPLATE_URL,
-    TimeoutInMinutes: 0
+    TimeoutInMinutes: 30
   };
   cloudformation.createStack(params, function(err, data) {
     if (err) console.log(err, err.stack); // an error occurred
@@ -47,4 +47,16 @@ module.exports.invoke = function(event, context, callback) {
   callback(null, "HPC started");
 
    // Use callback() and return information to the caller.
+};
+
+module.exports.delete = function(event, context, callback) {
+  const cloudformation = new AWS.CloudFormation();
+  var params = {
+    StackName: 'MY_HPC',
+    RoleARN: 'arn:aws:iam::'+process.env.AWS_ACCOUNT_ID+':role/startHPC'
+  };
+  cloudformation.deleteStack(params, function(err, data) {
+    if (err) console.log(err, err.stack); // an error occurred
+    else     console.log(data);           // successful response
+  });
 };

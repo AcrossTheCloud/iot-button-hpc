@@ -3,6 +3,7 @@ provider:
   runtime: nodejs6.10
   stage: prod
   region: ap-southeast-2
+  role: 'arn:aws:iam::${file(env.yml):${self:custom.stage}.AWS_ACCOUNT_ID}:role/lambda-cloudformation'
 
 custom:
   stage: "${opt:stage, self:provider.stage}"
@@ -11,18 +12,14 @@ service: iot-button-hpc
 
 functions:
   startHPC:
-    handler: invoke.handler
+    handler: handlers.invoke
     events:
       - iot:
           sql: "SELECT * FROM '${file(env.yml):${self:custom.stage}.START_BUTTON}'"
     environment: ${file(env.yml):${self:custom.stage}}
-    RoleARN:
-      Fn::GetAtt: [ lambda-cloudformation, Arn ]
 
   stopHPC:
-    handler: delete.handler
+    handler: handlers.delete
     events:
       - iot:
           sql: "SELECT * FROM '${file(env.yml):${self:custom.stage}.STOP_BUTTON}'"
-    RoleARN:
-      Fn::GetAtt: [ lambda-cloudformation, Arn ]
