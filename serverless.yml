@@ -1,0 +1,41 @@
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: prod
+  region: ap-southeast-2
+
+functions:
+  startHPC:
+    handler: invoke.handler
+    role:
+      Fn::Join:
+        - ""
+        - - "arn:aws:iam::"
+          - ${file(env.yml):${self:custom.stage}:AWS_ACCOUNT_ID}
+          - ":role/lambda-cloudformation"
+    events:
+      - iot:
+          sql:
+            Fn::Join:
+              - ""
+              - - "SELECT * FROM '"
+                - ${file(env.yml):${self:custom.stage}:START_BUTTON}
+                - "'"
+    environment: ${file(env.yml):${self:custom.stage}}
+
+  stopHPC:
+    handler: stop.handler
+    role:
+      Fn::Join:
+        - ""
+        - - "arn:aws:iam::"
+          - ${file(env.yml):${self:custom.stage}:AWS_ACCOUNT_ID}
+          - ":role/lambda-cloudformation"
+    events:
+      - iot:
+          sql:
+            Fn::Join:
+              - ""
+              - - "SELECT * FROM '"
+                - ${file(env.yml):${self:custom.stage}:STOP_BUTTON}
+                - "'"
