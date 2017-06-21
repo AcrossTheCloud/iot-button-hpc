@@ -4,38 +4,25 @@ provider:
   stage: prod
   region: ap-southeast-2
 
+custom:
+  stage: "${opt:stage, self:provider.stage}"
+
+service: iot-button-hpc
+
 functions:
   startHPC:
     handler: invoke.handler
-    role:
-      Fn::Join:
-        - ""
-        - - "arn:aws:iam::"
-          - ${file(env.yml):${self:custom.stage}:AWS_ACCOUNT_ID}
-          - ":role/lambda-cloudformation"
     events:
       - iot:
-          sql:
-            Fn::Join:
-              - ""
-              - - "SELECT * FROM '"
-                - ${file(env.yml):${self:custom.stage}:START_BUTTON}
-                - "'"
+          sql: "SELECT * FROM '${file(env.yml):${self:custom.stage}.START_BUTTON}'"
     environment: ${file(env.yml):${self:custom.stage}}
+    RoleARN:
+      Fn::GetAtt: [ lambda-cloudformation, Arn ]
 
   stopHPC:
-    handler: stop.handler
-    role:
-      Fn::Join:
-        - ""
-        - - "arn:aws:iam::"
-          - ${file(env.yml):${self:custom.stage}:AWS_ACCOUNT_ID}
-          - ":role/lambda-cloudformation"
+    handler: delete.handler
     events:
       - iot:
-          sql:
-            Fn::Join:
-              - ""
-              - - "SELECT * FROM '"
-                - ${file(env.yml):${self:custom.stage}:STOP_BUTTON}
-                - "'"
+          sql: "SELECT * FROM '${file(env.yml):${self:custom.stage}.STOP_BUTTON}'"
+    RoleARN:
+      Fn::GetAtt: [ lambda-cloudformation, Arn ]
