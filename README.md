@@ -13,7 +13,7 @@ HPC at the push of an IoT button.
 ## Steps:
 1. Use the configuration wizard x2 at https://aws.amazon.com/iotbutton/getting-started/ to set up your buttons (if you haven't already).
 1. Create and subscribe to an SNS topic for notifications about the HPC cluster startup.
-2. Edit [policy.json](policy.json) and fill in the bucket in which you have the CLoudFormation template for Alces Flight Solo, and assign that policy to a role called *lambda-cloudformation* (or if different, modify [serverless.yml](serverless.yml)
+2. Edit [policy.json](policy.json) and fill in the bucket in which you have the CLoudFormation template for Alces Flight Solo, and assign that policy in AWS IAM to a role called *lambda-cloudformation* (or if different, modify [serverless.yml](serverless.yml))
 3. Copy [env.yml.sample](env.yml.sample) to env.yml and edit, specifying full s3 path to that template and the other required details as required.
 4. Run `serverless deploy` to deploy the lambda functions required
 5. Press your start button.
