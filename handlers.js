@@ -35,7 +35,7 @@ module.exports.invoke = function(event, context, callback) {
         UsePreviousValue: false
       },
       {
-        ParameterKey: 'FileProfileBucket',
+        ParameterKey: 'FightProfileBucket',
         ParameterValue: '',
         UsePreviousValue: false
       },
@@ -45,7 +45,6 @@ module.exports.invoke = function(event, context, callback) {
         UsePreviousValue: false
       }
     ],
-    RoleARN: 'arn:aws:iam::'+process.env.AWS_ACCOUNT_ID+':role/startHPC',
     Tags: [
       {
         Key: 'client',
@@ -68,8 +67,7 @@ module.exports.invoke = function(event, context, callback) {
 module.exports.delete = function(event, context, callback) {
   const cloudformation = new AWS.CloudFormation();
   var params = {
-    StackName: 'MY_HPC',
-    RoleARN: 'arn:aws:iam::'+process.env.AWS_ACCOUNT_ID+':role/startHPC'
+    StackName: 'MYHPC',
   };
   cloudformation.deleteStack(params, function(err, data) {
     if (err) console.log(err, err.stack); // an error occurred
