@@ -35,7 +35,7 @@ module.exports.invoke = function(event, context, callback) {
         UsePreviousValue: false
       },
       {
-        ParameterKey: 'FightProfileBucket',
+        ParameterKey: 'FlightProfileBucket',
         ParameterValue: '',
         UsePreviousValue: false
       },
