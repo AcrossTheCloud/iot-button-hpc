@@ -31,7 +31,7 @@ module.exports.invoke = function(event, context, callback) {
       },
       {
         ParameterKey: 'FlightFeatures',
-        ParameterValue: 'configure-docker'
+        ParameterValue: 'configure-docker',
         UsePreviousValue: false
       },
       {
@@ -39,12 +39,11 @@ module.exports.invoke = function(event, context, callback) {
         ParameterValue: '',
         UsePreviousValue: false
       },
-
       {
         ParameterKey: 'FlightProfiles',
-        ParameterValue: ''
+        ParameterValue: '',
         UsePreviousValue: false
-      },
+      }
     ],
     RoleARN: 'arn:aws:iam::'+process.env.AWS_ACCOUNT_ID+':role/startHPC',
     Tags: [
