@@ -11,15 +11,9 @@ custom:
 service: iot-button-hpc
 
 functions:
-  startHPC:
-    handler: handlers.invoke
+  stopstartHPC:
+    handler: handlers.press
     events:
       - iot:
-          sql: "SELECT * FROM '${file(env.yml):${self:custom.stage}.START_BUTTON}'"
+          sql: "SELECT * FROM '${file(env.yml):${self:custom.stage}.BUTTON}'"
     environment: ${file(env.yml):${self:custom.stage}}
-
-  stopHPC:
-    handler: handlers.delete
-    events:
-      - iot:
-          sql: "SELECT * FROM '${file(env.yml):${self:custom.stage}.STOP_BUTTON}'"
