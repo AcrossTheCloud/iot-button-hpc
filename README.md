@@ -2,7 +2,7 @@
 HPC at the push of an IoT button.
 
 ## Requirements:
-1. Two [AWS IoT buttons](https://aws.amazon.com/iotbutton/).
+1. An [AWS IoT buttons](https://aws.amazon.com/iotbutton/).
 1. [node.js](https://nodejs.org) 6.10 or later
 3. [serverless](https://serverless.com), once node.js is installed run `npm install -g serverless` to install.
 4. Copy of the Alces Flight template: download from the template URL in the AWS marketplace under Alces Flight Solo -> Personal HPC compute cluster, and save in an s3 bucket in your desired region (see notes).
@@ -11,7 +11,7 @@ HPC at the push of an IoT button.
 * Everything (IoT, s3, lambdas) must be located in the same region and you need to specify the region in serverless.yml on the `region:` line.
 
 ## Steps:
-1. Use the configuration wizard x2 at https://aws.amazon.com/iotbutton/getting-started/ to set up your buttons (if you haven't already).
+1. Use the configuration wizard at https://aws.amazon.com/iotbutton/getting-started/ to set up your button (if you haven't already).
 2. Optionally create and subscribe to an SNS topic for notifications about the HPC cluster startup (and uncomment code in serverless.yml)
 3. Edit [policy.json](policy.json) and fill in the bucket in which you have the CLoudFormation template for Alces Flight Solo, and assign that policy in AWS IAM to a role called *lambda-cloudformation* (or if different, modify [serverless.yml](serverless.yml))
 4. Copy [env.yml.sample](env.yml.sample) to env.yml and edit, specifying full s3 path to that template and the other required details as required.

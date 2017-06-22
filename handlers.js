@@ -1,8 +1,7 @@
 const AWS = require('aws-sdk');
+const cloudformation = new AWS.CloudFormation();
 
-module.exports.invoke = function(event, context, callback) {
-
-  const cloudformation = new AWS.CloudFormation();
+const createStack = function(callback) {
 
   var params = {
     StackName: 'MYHPC', /* required */
@@ -65,7 +64,7 @@ module.exports.invoke = function(event, context, callback) {
    // Use callback() and return information to the caller.
 };
 
-module.exports.delete = function(event, context, callback) {
+const deleteStack = function(callback) {
   const cloudformation = new AWS.CloudFormation();
   var params = {
     StackName: 'MYHPC',
@@ -73,5 +72,17 @@ module.exports.delete = function(event, context, callback) {
   cloudformation.deleteStack(params, function(err, data) {
     if (err) console.log(err, err.stack); // an error occurred
     else     console.log(data);           // successful response
+  });
+};
+
+module.exports.press = function (event, context, callback) {
+  var params = { StackName: 'MYHPC' };
+  cloudformation.describeStacks(params, function(err, data) {
+    if (err && err.message.indexOf("does not exist") !== -1) {
+      createStack(callback);
+    } else {
+      deleteStack(callback);
+    }
+
   });
 };
