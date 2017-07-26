@@ -3,10 +3,7 @@ provider:
   runtime: nodejs6.10
   stage: prod
   region: ap-southeast-2
-  role: 'arn:aws:iam::${file(env.yml):${self:custom.stage}.AWS_ACCOUNT_ID}:role/lambda-cloudformation'
-
-custom:
-  stage: "${opt:stage, self:provider.stage}"
+  role: 'arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/lambda-cloudformation'
 
 service: iot-button-hpc
 
@@ -15,5 +12,5 @@ functions:
     handler: handlers.press
     events:
       - iot:
-          sql: "SELECT * FROM '${file(env.yml):${self:custom.stage}.BUTTON}'"
-    environment: ${file(env.yml):${self:custom.stage}}
+          sql: "SELECT * FROM '${env.BUTTON}'"
+    environment: ${env:}
