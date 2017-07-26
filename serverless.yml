@@ -12,5 +12,5 @@ functions:
     handler: handlers.press
     events:
       - iot:
-          sql: "SELECT * FROM '${env.BUTTON}'"
+          sql: "SELECT * FROM '${env:BUTTON}'"
     environment: ${env:}
