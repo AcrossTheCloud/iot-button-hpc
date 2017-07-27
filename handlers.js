@@ -43,6 +43,11 @@ const createStack = function(callback) {
         ParameterKey: 'FlightProfiles',
         ParameterValue: '',
         UsePreviousValue: false
+      },
+      {
+        ParameterKey: 'AutoscalingPolicy',
+        ParameterValue: 'enabled',
+        UsePreviousValue: false
       }
     ],
     Tags: [
