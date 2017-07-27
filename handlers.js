@@ -66,7 +66,6 @@ const createStack = function(callback) {
 
   callback(null, "HPC started");
 
-   // Use callback() and return information to the caller.
 };
 
 const deleteStack = function(callback) {
@@ -78,6 +77,8 @@ const deleteStack = function(callback) {
     if (err) console.log(err, err.stack); // an error occurred
     else     console.log(data);           // successful response
   });
+
+  callback(null, "HPC stopped");
 };
 
 module.exports.press = function (event, context, callback) {
