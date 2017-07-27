@@ -30,6 +30,11 @@ const createStack = function(callback) {
         UsePreviousValue: false
       },
       {
+        ParameterKey: 'FlightFeatures',
+        ParameterValue: '',
+        UsePreviousValue: false
+      },
+      {
         ParameterKey: 'FlightProfileBucket',
         ParameterValue: '',
         UsePreviousValue: false
