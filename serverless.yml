@@ -16,5 +16,5 @@ functions:
     environment:
       NOTIFICATION_ARN: {$env:NOTIFICATION_ARN}
       ACCESS_KEY_NAME: {$env:ACCESS_KEY_NAME}
-      ACCESS_NETWORK: {$env.ACCESS_NETWORK}
+      ACCESS_NETWORK: {$env:ACCESS_NETWORK}
       TEMPLATE_URL: {$env:TEMPLATE_URL}
