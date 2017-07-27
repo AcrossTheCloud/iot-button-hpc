@@ -20,7 +20,7 @@
             "Action": [
                 "s3:*"
             ],
-            "Resource": "arn:aws:s3:::bucket_with_template_in/*"
+            "Resource": "arn:aws:s3:::acrossthecloud-example-s3/*"
         }
     ]
 }
