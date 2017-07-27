@@ -1,6 +1,8 @@
 # iot-button-hpc
 HPC at the push of an IoT button.
 
+[Travis CI status](https://travis-ci.org/AcrossTheCloud/iot-button-hpc): [![Build Status](https://travis-ci.org/AcrossTheCloud/iot-button-hpc.svg?branch=master)](https://travis-ci.org/AcrossTheCloud/iot-button-hpc)
+
 ## Requirements:
 1. An [AWS IoT buttons](https://aws.amazon.com/iotbutton/).
 1. [node.js](https://nodejs.org) 6.10 or later
