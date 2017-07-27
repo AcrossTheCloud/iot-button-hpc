@@ -30,6 +30,11 @@ const createStack = function(callback) {
         UsePreviousValue: false
       },
       {
+        ParameterKey: 'FlightFeatures',
+        ParameterValue: 'configure-docker',
+        UsePreviousValue: false
+      },
+      {
         ParameterKey: 'FlightProfileBucket',
         ParameterValue: '',
         UsePreviousValue: false
