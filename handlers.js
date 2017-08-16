@@ -21,12 +21,12 @@ const createStack = function(callback) {
       },
       {
         ParameterKey: "ComputeInitialNodes",
-        ParameterValue: 2,
+        ParameterValue: "2",
         UsePreviousValue: false
       },
       {
         ParameterKey: "ComputeMaxNodes",
-        ParameterValue: 4,
+        ParameterValue: "4",
         UsePreviousValue: false
       },
       {
