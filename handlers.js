@@ -15,6 +15,21 @@ const createStack = function(callback) {
     ], */
     Parameters: [
       {
+        ParameterKey: "ComputeInstanceType",
+        ParameterValue: "memory-32C-240GB.xlarge-r4.8xlarge",
+        UsePreviousValue: false
+      },
+      {
+        ParameterKey: "ComputeInitialNodes",
+        ParameterValue: 2,
+        UsePreviousValue: false
+      },
+      {
+        ParameterKey: "ComputeMaxNodes",
+        ParameterValue: 4,
+        UsePreviousValue: false
+      },
+      {
         ParameterKey: 'AccessUsername',
         ParameterValue: 'alces',
         UsePreviousValue: false
@@ -53,7 +68,7 @@ const createStack = function(callback) {
     Tags: [
       {
         Key: 'client',
-        Value: 'testing'
+        Value: 'awspsdemo'
       }
     ],
     TemplateURL: process.env.TEMPLATE_URL,
