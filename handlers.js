@@ -15,18 +15,18 @@ const createStack = function(callback) {
     ], */
     Parameters: [
       {
-        ParameterKey: "ComputeInstanceType",
-        ParameterValue: "memory-32C-240GB.xlarge-r4.8xlarge",
+        ParameterKey: 'ComputeInstanceType',
+        ParameterValue: 'memory-32C-240GB.xlarge-r4.8xlarge',
         UsePreviousValue: false
       },
       {
-        ParameterKey: "ComputeInitialNodes",
-        ParameterValue: "2",
+        ParameterKey: 'ComputeInitialNodes',
+        ParameterValue: '2',
         UsePreviousValue: false
       },
       {
         ParameterKey: "ComputeMaxNodes",
-        ParameterValue: "4",
+        ParameterValue: '4',
         UsePreviousValue: false
       },
       {
@@ -79,7 +79,7 @@ const createStack = function(callback) {
     else     console.log(data);           // successful response
   });
 
-  callback(null, "HPC started");
+  callback(null, 'HPC started');
 
 };
 
