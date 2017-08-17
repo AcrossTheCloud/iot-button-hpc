@@ -25,7 +25,7 @@ const createStack = function(callback) {
         UsePreviousValue: false
       },
       {
-        ParameterKey: "ComputeMaxNodes",
+        ParameterKey: 'ComputeMaxNodes',
         ParameterValue: '4',
         UsePreviousValue: false
       },
