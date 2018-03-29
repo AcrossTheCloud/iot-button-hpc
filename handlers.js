@@ -45,6 +45,11 @@ const createStack = function(callback) {
         UsePreviousValue: false
       },
       {
+        ParameterKey: 'PersonalityData',
+        ParameterValue: '',
+        UsePreviousValue: false
+      },
+      {
         ParameterKey: 'FlightFeatures',
         ParameterValue: 'configure-docker',
         UsePreviousValue: false
