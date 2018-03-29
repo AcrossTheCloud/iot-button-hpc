@@ -11,7 +11,8 @@
                 "iam:*",
                 "ec2:*",
                 "autoscaling:*",
-                "sns:*"
+                "sns:*",
+                "logs:*"
             ],
             "Resource": "*"
         },
